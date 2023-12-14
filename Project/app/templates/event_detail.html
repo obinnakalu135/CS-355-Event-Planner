@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ event.name }}</h2>
+    <p>{{ event.description }}</p>
+    <p>Organizer: {{ event.organizer }}</p>
+    <p>Location: {{ event.location }}</p>
+    <p>Date: {{ event.date }}</p>
+
+    {% if current_user == event.user %}
+        <form action="{{ url_for('delete_event', event_id=event.id) }}" method="POST">
+            {{ form.csrf_token }}
+            <button type="submit" class="btn btn-danger">Delete Event</button>
+        </form>
+    {% endif %}
+
+    <h3>Mentioned Users:</h3>
+    <ul>
+        {% for mention in event.mentions %}
+            <li>{{ mention.user.username }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

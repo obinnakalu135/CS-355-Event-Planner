@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Events</h1>
+  <p>Sort By:</p>
+  <a href="{{ url_for('index', sort_by='recent') }}" class="{% if sort_by == 'recent' %}active{% endif %}">Recent</a>
+  <a href="{{ url_for('index', sort_by='oldest') }}" class="{% if sort_by == 'oldest' %}active{% endif %}">Oldest</a>
+
+  <form method="GET" action="{{ url_for('index') }}">
+    {{ form.csrf_token }}
+    <select name="poster">
+      <option value="">All Users</option>
+      {% for user in users %}
+        <option value="{{ user.id }}" {% if request.args.get('poster') == user.id|string %}selected{% endif %}>{{ user.username }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Filter</button>
+  </form>
+
+  {% for event in events %}
+    <h3>{{ event.name }}</h3>
+    <p>{{ event.description }}</p>
+    <a href="{{ url_for('event_detail', event_id=event.id) }}">View Details</a>
+  {% endfor %}
+
+  {% if current_user.is_authenticated %}
+    <h2>Add Event</h2>
+    <form method="POST" action="{{ url_for('add_event') }}">
+      {{ form.csrf_token }}
+      
+      <div class="form-group">
+        {{ form.name.label(class='control-label') }}
+        {{ form.name(class='form-control') }}
+      </div>
+      
+      <div class="form-group">
+        {{ form.date.label(class='control-label') }}
+        {{ form.date(class='form-control') }}
+      </div>
+      
+      <div class="form-group">
+        {{ form.organizer.label(class='control-label') }}
+        {{ form.organizer(class='form-control') }}
+      </div>
+      
+      <div class="form-group">
+        {{ form.description.label(class='control-label') }}
+        {{ form.description(class='form-control') }}
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Create Event</button>
+    </form>
+  {% else %}
+    <p>You must be logged in to add events. <a href="{{ url_for('login') }}">Login</a></p>
+  {% endif %}
+{% endblock %}
