@@ -72,3 +72,7 @@ For macOS/Linux: source venv/bin/activate
 Set up the database: In the main.py file, you will find the line app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///event_management.db' . This configures the application to use an SQLite database file named event_management.db . Make sure you have SQLite installed on your system.
 
 Run the application: Execute the command python main.py to start the Flask development server. The application will be accessible at http://localhost:5000 in your web browser.
+
+## Notes
+
+Couldn't quite get event deletion and event filtering functionality up and running but the logic is in the code.
