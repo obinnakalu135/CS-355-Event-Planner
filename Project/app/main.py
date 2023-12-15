@@ -9,7 +9,7 @@ from forms import LoginForm, RegistrationForm, AddEventForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///event_app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///event_management.db'
 db.init_app(app)
 
 
