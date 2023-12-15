@@ -1,5 +1,6 @@
-# CS-355-Event-Planner
- Python-Flask web app that allows users to create accounnts and schedule events
+# Event App Readme
+
+This is a Flask web application that allows users to register, log in, and organize events. Users can add events, RSVP to events, view event details, and delete events. The application uses a SQLite database to store user information and event data.
 
 ## Code Overview
 
@@ -54,12 +55,20 @@ Please refer to the respective files and line numbers for a more detailed unders
 
 ## Getting Started
 
-To run the project, follow these steps:
+To run the project, you will need to follow these steps:
 
-1. Install the required dependencies by running `pip install -r requirements.txt`.
-2. Set up the database by running `python manage.py`.
-3. Start the Flask application by running `python main.py`.
+Install Python: Make sure you have Python installed on your system.
 
-Make sure you have Python and Flask installed on your system before running the project.
+Install Flask: Open your terminal and run the command pip install flask to install the Flask framework.
 
-That's it! You should now be able to access and use the Event App. Feel free to explore the different features and create, RSVP, and manage events.
+Install SQLAlchemy: Run the command pip install sqlalchemy to install the SQLAlchemy library for database operations.
+
+Create a virtual environment (optional): It is recommended to create a virtual environment for this project. Run the command python -m venv venv to create a virtual environment named venv (you can use any name).
+
+Activate the virtual environment: Activate the virtual environment by running the appropriate command for your operating system.
+
+For Windows: venv\Scripts\activate
+For macOS/Linux: source venv/bin/activate
+Set up the database: In the main.py file, you will find the line app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///event_management.db' . This configures the application to use an SQLite database file named event_management.db . Make sure you have SQLite installed on your system.
+
+Run the application: Execute the command python main.py to start the Flask development server. The application will be accessible at http://localhost:5000 in your web browser.
