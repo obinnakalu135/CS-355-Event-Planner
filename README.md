@@ -73,6 +73,16 @@ Set up the database: In the main.py file, you will find the line app.config['SQL
 
 Run the application: Execute the command python main.py to start the Flask development server. The application will be accessible at http://localhost:5000 in your web browser.
 
+## Design Decisions
+
+My application uses Flask-SQLAlchemy as the ORM library to interact with an SQLite database. I utilize models for User, Event, and Mention, with relationships defined between them. My application includes features like user registration, login, adding events, RSVPing to events, and filtering events.
+
+## Improvements
+
+To improve my application's use of the database, I could consider implement database migrations using a tool like Flask-Migrate for easier management of database schema changes. Additionally, I can enhance input validation and optimize queries for better performance. 
+
 ## Notes
 
 Couldn't quite get event deletion and event filtering functionality up and running but the logic is in the code.
+
+
