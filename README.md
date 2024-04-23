@@ -1,6 +1,6 @@
 # Event App Readme
 
-This is a Flask web application that allows users to register, log in, and organize events. Users can add events, RSVP to events, view event details, and delete events. The application uses a SQLite database to store user information and event data.
+This is a Flask web application that allows users to register, log in, and organize events. Users can add events, RSVP to events, view event details, and delete events. The application uses a SQLAlchemy database to store user information and event data.
 
 ## Code Overview
 
